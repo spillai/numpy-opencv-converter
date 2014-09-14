@@ -1,5 +1,5 @@
 ## NUMPY <=> OpenCV's cv::Mat converter
-Sudeep Pillai (spillai@csail.mit.edu) Sep 14, 2014
+[Sudeep Pillai](http://people.csail.mit.edu/spillai) (spillai@csail.mit.edu) Sep 14, 2014
 
 A convenience library that registers a boost::python converter to implicitly
 convert between OpenCV's popular cv::Mat datatype and NumPy's popular
@@ -10,7 +10,7 @@ write additional wrappers that handle PyObjects being passed around or returned.
 This work was mostly inspired by
 https://github.com/yati-sagade/opencv-ndarray-conversion. 
 
-*Licese: BSD*
+**BSD License**
 
 ## Build and Install
 See dependencies below before building. 
@@ -95,6 +95,3 @@ modifications to the CMakeLists.txt file.
 ```
 $ sudo apt-get install libboost-python-dev libopencv-dev
 ```
-
-## License
-BSD
