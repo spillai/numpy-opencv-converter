@@ -7,6 +7,9 @@ np.array() datatype. This allows a developer to go back and forth between their
 OpenCV C++ API and Python API written using NumPy with relative ease, avoiding the need to
 write additional wrappers that handle PyObjects being passed around or returned. 
 
+This work was mostly inspired by
+https://github.com/yati-sagade/opencv-ndarray-conversion. 
+
 **BSD License**
 
 ## A simple example
@@ -34,9 +37,6 @@ B = process_mat(A)
 ```												
 
 As simple as that! Hope you find it useful!
-
-This work was mostly inspired by
-https://github.com/yati-sagade/opencv-ndarray-conversion. 
 
 ## Build and Install
 See dependencies below before building. 
