@@ -31,7 +31,11 @@ environment variable, before running the following in python/ipython.
 In [1]: import np_opencv_module as npcv
 PYTHON TYPE CONVERTERS exported
 ```
-On succesful import, the cv::Mat <=> np.ndarray converters are exported.
+On succesful import, the cv::Mat <=> np.ndarray converters are exported. 
+
+We then test  a simple function that takes in a cv::Mat (appropriately converted
+from np.ndarray A) as an argument and returns
+another cv::Mat (again appropriately converted back to np.ndarray B).  
 
 ```python
 In [2]: import numpy as np
@@ -86,7 +90,7 @@ array([[ 0.27932054,  0.53744266,  0.99346931,  0.57114963],
 Currently only Linux is supported, although the code is pretty barebones that
 should allow you to port it to Windows, or Mac OSX with relative ease. 
 I personally wouldn't recommend installing opencv as indicated below, but I'll
-assume you know how to deal with pkg-config and opencv to manage any
+assume you know how to deal with pkg-config and opencv to make any
 modifications to the CMakeLists.txt file. 
 
 ```
