@@ -21,5 +21,6 @@ boost_python_module(np_opencv_converter np_opencv_converter.cpp utils/conversion
 target_link_libraries(np_opencv_converter boost_system boost_python ${OpenCV_LDFLAGS})
 
 # Build test library
-boost_python_module(np_opencv_converter_test np_opencv_converter_test.cpp)
-target_link_libraries(np_opencv_converter_test boost_system boost_python np_opencv_converter ${OpenCV_LDFLAGS})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+boost_python_module(np_opencv_module src/np_opencv_module.cpp)
+target_link_libraries(np_opencv_module boost_system boost_python np_opencv_converter ${OpenCV_LDFLAGS})

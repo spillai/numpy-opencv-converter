@@ -55,7 +55,7 @@ class GenericWrapper {
 // Wrap a few functions and classes for testing purposes
 namespace fs { namespace python {
 
-BOOST_PYTHON_MODULE(np_opencv_converter_test)
+BOOST_PYTHON_MODULE(np_opencv_module)
 {
   // Main types export
   fs::python::init_and_export_converters();
