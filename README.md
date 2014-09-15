@@ -23,34 +23,33 @@ make
 
 ## Usage
 
-Make sure the built np_opencv_converter.so and np_opencv_converter_test.so
+Make sure the built np_opencv_converter.so and np_opencv_module.so
 (currently in numpy-opencv-converter/build/) are in the $LD_LIBRARY_PATH
 environment variable, before running the following in python/ipython. 
 
 ```python
-In [1]: import numpy as np
-In [2]: A = np.random.random((4,3))
-
-In [3]: import np_opencv_converter_test as npcv
+In [1]: import np_opencv_module as npcv
 PYTHON TYPE CONVERTERS exported
+```
+On succesful import, the cv::Mat <=> np.ndarray converters are exported.
 
-In [4]: import np_opencv_converter_test as npcv
-
-In [5]: B = npcv.test_np_mat(A)
+```python
+In [2]: import numpy as np
+In [3]: A = np.random.random((4,3))
+In [4]: B = npcv.test_np_mat(A)
 in: [0.2793205402416998, 0.466896711918419, 0.3834843006535923;
   0.5374426625812107, 0.3737008026047054, 0.3685794034255524;
   0.993469313797578, 0.2619403678989528, 0.5700175530375297;
   0.5711496315041438, 0.3286727439294438, 0.1250325059375548]
 sz: [3 x 4]
 
-In [6]: print A.dtype, B.dtype
+In [5]: print A.dtype, B.dtype
 float64 float64
 ```
 
 With default args
 ```python
-In [7]: npcv.test_with_args(A, var1=0, var2=20.0, name='test_name2')
-
+In [6]: npcv.test_with_args(A, var1=0, var2=20.0, name='test_name2')
 in: [0.27932054, 0.46689671, 0.3834843;
   0.53744268, 0.3737008, 0.36857942;
     0.9934693, 0.26194036, 0.57001758;
@@ -58,7 +57,7 @@ in: [0.27932054, 0.46689671, 0.3834843;
 sz: [3 x 4]
 Returning transpose
 
-Out[7]: 
+Out[6]: 
 array([[ 0.27932054,  0.53744268,  0.9934693 ,  0.57114965],
  	  [ 0.46689671,  0.3737008 ,  0.26194036,  0.32867274],
 	  [ 0.3834843 ,  0.36857942,  0.57001758,  0.1250325 ]],
@@ -67,9 +66,8 @@ array([[ 0.27932054,  0.53744268,  0.9934693 ,  0.57114965],
 
 Finally, testing a wrapper class
 ```python
-In [8]: gw = npcv.GenericWrapper(var_int=1, var_float=2.0, var_double=3.0, var_string='string')
-
-In [9]: gw.process(A)
+In [7]: gw = npcv.GenericWrapper(var_int=1, var_float=2.0, var_double=3.0, var_string='string')
+In [8]: gw.process(A)
 
 in: [0.2793205402416998, 0.466896711918419, 0.3834843006535923;
   0.5374426625812107, 0.3737008026047054, 0.3685794034255524;
@@ -78,11 +76,10 @@ in: [0.2793205402416998, 0.466896711918419, 0.3834843006535923;
 sz: [3 x 4]
 Returning transpose
 
-Out[9]: 
+Out[8]: 
 array([[ 0.27932054,  0.53744266,  0.99346931,  0.57114963],
       [ 0.46689671,  0.3737008 ,  0.26194037,  0.32867274],
       [ 0.3834843 ,  0.3685794 ,  0.57001755,  0.12503251]])
-				
 ```
 
 ## Dependencies
