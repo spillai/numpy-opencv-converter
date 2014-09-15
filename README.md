@@ -7,8 +7,7 @@ np.array() datatype. This allows a developer to go back and forth between their
 OpenCV C++ API and Python API written using NumPy with relative ease, avoiding the need to
 write additional wrappers that handle PyObjects being passed around or returned. 
 
-
-https://github.com/spillai/numpy-opencv-converter
+## A simple example
 
 Imagine writing a C++ API using OpenCV as so: 
 ```c++
