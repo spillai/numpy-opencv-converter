@@ -43,7 +43,7 @@ See dependencies below before building.
 ```
 git clone git@github.com:spillai/numpy-opencv-converter
 mkdir build
-cd build && cmake ../
+cd build && cmake ..
 make
 ```
 
