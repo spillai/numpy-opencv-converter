@@ -20,7 +20,7 @@ endif()
 
 # not including this causes compilation error later, as the compiler cannot find the NumPy C headers location
 if (NOT NUMPY_INCLUDE_DIRS)
-	execute_process( COMMAND "${PYTHON_EXECUTABLE}" "-c" "import numpy; print numpy.get_include();" OUTPUT_VARIABLE NUMPY_INCLUDE_DIRS OUTPUT_STRIP_TRAILING_WHITESPACE )
+	execute_process( COMMAND python -c "import numpy; print numpy.get_include();" OUTPUT_VARIABLE NUMPY_INCLUDE_DIRS OUTPUT_STRIP_TRAILING_WHITESPACE )
 endif()
 include_directories(${NUMPY_INCLUDE_DIRS})
 
