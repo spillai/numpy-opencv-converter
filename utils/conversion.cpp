@@ -63,7 +63,7 @@ static PyObject* failmsgp(const char *fmt, ...)
   return 0;
 }
 
-#define OPENCV_3 0
+#define OPENCV_3 1
 #if OPENCV_3
 class NumpyAllocator : public MatAllocator
 {
@@ -84,13 +84,19 @@ public:
         return u;
     }
 
-    UMatData* allocate(int dims0, const int* sizes, int type, void* data, size_t* step, int flags) const
+    UMatData* allocate(int dims0, const int* sizes, int type, void* data, size_t* step, int flags, UMatUsageFlags usage_flags) const
     {
         if( data != 0 )
         {
             CV_Error(Error::StsAssert, "The data should normally be NULL!");
             // probably this is safe to do in such extreme case
-            return stdAllocator->allocate(dims0, sizes, type, data, step, flags);
+
+            /*
+             * virtual UMatData* allocate(int dims, const int* sizes, int type,
+                               void* data, size_t* step, int flags, UMatUsageFlags usageFlags) const = 0;
+    virtual bool allocate(UMatData* data, int accessflags, UMatUsageFlags usageFlags) const = 0;
+             */
+            return stdAllocator->allocate(dims0, sizes, type, data, step, flags, USAGE_DEFAULT);
         }
         PyEnsureGIL gil;
 
@@ -113,9 +119,9 @@ public:
         return allocate(o, dims0, sizes, type, step);
     }
 
-    bool allocate(UMatData* u, int accessFlags) const
+    bool allocate(UMatData* u, int accessFlags, UMatUsageFlags usage_flags) const
     {
-        return stdAllocator->allocate(u, accessFlags);
+        return stdAllocator->allocate(u, accessFlags, USAGE_DEFAULT);
     }
 
     void deallocate(UMatData* u) const

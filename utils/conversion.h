@@ -6,7 +6,7 @@
 
 #include <Python.h>
 #include <opencv2/opencv.hpp>
-#include <opencv2/core/core.hpp>
+#include <opencv2/core.hpp>
 #include <numpy/ndarrayobject.h>
 
 static PyObject* opencv_error = 0;
