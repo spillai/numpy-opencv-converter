@@ -260,7 +260,7 @@ cv::Mat NDArrayConverter::toMat(const PyObject *o)
     //           << " size: " << size[2] << std::endl;
 
     // TODO: Possible bug in multi-dimensional matrices
-#if 0
+#if 1
     if( ndims == 3 && size[2] <= CV_CN_MAX && step[1] == elemsize*size[2] )
     {
         ndims--;
