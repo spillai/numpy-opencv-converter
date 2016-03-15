@@ -3,6 +3,9 @@
 // Last modified: Sep 14, 2014
 
 #include "np_opencv_converter.hpp"
+BOOST_PYTHON_MODULE(np_opencv_converter) {
+    // TODO: does this need to be filled in ?
+}
 
 namespace fs { namespace python {
 
